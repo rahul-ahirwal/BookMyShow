@@ -1,0 +1,55 @@
+﻿@model BookShowVM
+
+<div class="card mb-3 my-3">
+    <h3 class="card-header">@Model.Movie.Name</h3>
+    <div class="card-body">
+        <h5 class="card-title">Directed By </h5>
+        <h6 class="card-subtitle text-muted">@Model.Movie.Director</h6>
+    </div>
+    <img xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none"
+         width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false"
+         role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180"
+         style="font-size:1.125rem;text-anchor:middle" href="@Model.Movie.Poster">
+    </img>
+    <div class="p-1 pl-2">
+        <span class="badge bg-dark">@Model.Movie.Genre</span>
+        <span class="badge bg-dark">@Model.Movie.AgeRating + </span>
+        <span class="badge bg-dark">@Model.Movie.Language</span>
+    </div>
+    <div class="card-body">
+        <p class="card-text">@Model.Movie.Cast</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Produced By - @Model.Movie.Producer</li>
+        <li class="list-group-item">Music Director - @Model.Movie.MusicDirector</li>
+    </ul>
+    <div class="card-body">
+        <a href="@Model.Movie.Trailer" class="card-link text-decoration-none">Watch trailer</a>
+    </div>
+    <div class="card-footer text-muted">
+        Releasing On @Model.Movie.ReleaseDate.ToLongDateString()
+    </div>
+</div>
+@foreach (var kvp in Model.ShowsData)
+{
+    <div class="card mb-3 justify-content-evenly justify-content-md-between">
+        <div class="card-body">
+            @{var th = Model.Theatres.FirstOrDefault(th => th.Id == kvp.Key);}
+            <h4 class="card-title">@th.Name</h4>
+            <h6 class="card-subtitle mb-2 text-muted">@th.City, @th.State</h6>
+            @foreach (var kv in kvp.Value)
+            {
+                <div class="card border-primary mb-3" style="max-width: 20rem;">
+                    <div class="card-header">@kv.Date.ToLongDateString()</div>
+                    <div class="card-body">
+                        @foreach (var k in kv.Time)
+                        {
+                            <a type="button" class="btn btn-outline-primary me-4 my-3" asp-action="SelectSeats" asp-route-showId="@k.Value">@k.Key</a>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+<div class="mb-5"></div>

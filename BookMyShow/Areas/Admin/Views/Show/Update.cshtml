@@ -1,0 +1,67 @@
+﻿@model CreateShowVM
+
+<form method="post" class="mb-4">
+    <input asp-for="Show.Id" hidden />
+    <fieldset>
+        <legend>Update Show </legend>
+        <div class="col-6">
+            <label asp-for="Show.MovieId" class="form-label mt-4">Movie</label>
+            <select asp-for="Show.MovieId" asp-items="@Model.MovieDD" type="text" class="form-control" placeholder="Movie">
+                <option disabled selected>--Select Movie--</option>
+            </select>
+            <span asp-validation-for="Show.MovieId" class="text-danger"></span>
+        </div>
+        <div class="col-6">
+            <label asp-for="Show.TheatreId" class="form-label mt-4">Theatre</label>
+            <select asp-for="Show.TheatreId" asp-items="@Model.TheatreDD" type="text" class="form-control" placeholder="Theatre">
+                <option disabled selected>--Select Theatre--</option>
+            </select>
+            <span asp-validation-for="Show.TheatreId" class="text-danger"></span>
+        </div>
+        <div class="col-6">
+            <label asp-for="Show.Date" class="form-label mt-4">Show Date</label>
+            <input asp-for="Show.Date" type="date" class="form-control" placeholder="Show Date">
+            <span asp-validation-for="Show.Date" class="text-danger"></span>
+        </div>
+        <div class="col-6">
+            <label asp-for="Show.Time" class="form-label mt-4">Show Time</label>
+            <input asp-for="Show.Time" type="time" class="form-control" placeholder="Show Time">
+            <span asp-validation-for="Show.Time" class="text-danger"></span>
+        </div>
+        <div class="col-6">
+            <label asp-for="Show.ShowType" class="form-label mt-4">Show Type</label>
+            <select asp-for="Show.ShowType" asp-items="@Model.ShowTypeDD" type="text" class="form-control" placeholder="Movie">
+                <option disabled selected>--Select Show Type--</option>
+            </select>
+            <span asp-validation-for="Show.ShowType" class="text-danger"></span>
+        </div>
+        <div class="col-6">
+            <label asp-for="Show.Price" class="form-label mt-4">Price</label>
+            <input asp-for="Show.Price" type="number" class="form-control" value="0">
+            <span asp-validation-for="Show.Price" class="text-danger"></span>
+        </div>
+        <div class="col-6">
+            <label asp-for="Show.MaxSeats" class="form-label mt-4">Maximum Capacity</label>
+            <input asp-for="Show.MaxSeats" type="number" class="form-control" placeholder="0">
+            <span asp-validation-for="Show.MaxSeats" class="text-danger"></span>
+        </div>
+        <div class="col-6">
+            <label asp-for="Show.BookedSeats" class="form-label mt-4">Seats Booked</label>
+            <input asp-for="Show.BookedSeats" type="number" class="form-control" placeholder="0">
+            <span asp-validation-for="Show.BookedSeats" class="text-danger"></span>
+        </div>
+        <div class="col-6">
+            <label asp-for="Show.AvailableSeats" class="form-label mt-4">Seats Available</label>
+            <input asp-for="Show.AvailableSeats" type="number" class="form-control" placeholder="0">
+            <span asp-validation-for="Show.AvailableSeats" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary my-4">Save</button>
+    </fieldset>
+</form>
+
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

@@ -1,0 +1,21 @@
+﻿@model Show
+
+<form method="post" class="mb-5">
+    <input asp-for="Id" hidden />
+    <div class="row pb-3 mb-5 pt-4">
+        <div class="col-10 col-lg-9 col-sm-6 card pt-3 pb-8 mx-3">
+            <h3 class="card-header">@Model.Movie.Name</h3>
+            <div class="card-body">
+                <h5 class="card-title">@Model.Theatre.Name</h5>
+                <h6 class="card-subtitle text-muted">@Model.Theatre.Address, @Model.Theatre.City</h6>
+            </div>
+            <div class="card-body">
+                <p class="card-text">@Model.Date, @Model.Time</p>
+            </div>
+        </div>
+        <div class="col-2 col-rg-2 my-3">
+            <a type="button" asp-area="Admin" asp-controller="Show" asp-action="Index" class="btn btn-primary my-2">Back to Theatre List</a>
+            <button type="submit"  class="btn btn-danger my-2">Delete</button>
+        </div>
+    </div>
+</form>

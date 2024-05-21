@@ -1,0 +1,31 @@
+﻿@model Theatre
+
+<form method="post" class="mb-4">
+    <input asp-for="Id" hidden/>
+    <fieldset>
+        <legend>Add Theatre </legend>
+        <div class="col-6">
+            <label asp-for="Name" class="form-label mt-4">Theatre Name</label>
+            <input asp-for="Name" type="text" class="form-control" placeholder="Theatre Name">
+        </div>
+        <div class="col-6">
+            <label asp-for="Address" class="form-label mt-4">Address</label>
+            <input asp-for="Address" type="text" class="form-control" placeholder="Address">
+        </div>
+        <div class="col-6">
+            <label asp-for="City" class="form-label mt-4">City</label>
+            <input asp-for="City" type="text" class="form-control" placeholder="City">
+        </div>
+        <div class="col-6">
+            <label asp-for="State" class="form-label mt-4">State</label>
+            <input asp-for="State" type="text" class="form-control" placeholder="State">
+        </div>
+        <div class="col-6">
+            <label asp-for="PinCode" class="form-label mt-4">PinCode</label>
+            <input asp-for="PinCode" type="text" class="form-control" placeholder="PinCode">
+        </div>
+        <button type="submit" class="btn btn-primary my-4">Create</button>
+    </fieldset>
+</form>
+
+

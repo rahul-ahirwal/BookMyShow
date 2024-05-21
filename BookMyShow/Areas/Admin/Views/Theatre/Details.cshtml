@@ -1,0 +1,26 @@
+﻿@model Theatre
+
+<div class="row pb-3 mb-5 pt-4">
+    <input asp-for="Id" hidden />
+    <div class="row pb-3 mb-5 pt-4">
+        <div class="col-10 col-lg-9 col-sm-6 card pt-3 pb-8 mx-3">
+            <h3 class="card-header">@Model.Name</h3>
+            <div class="card-body">
+                <h5 class="card-title">Address</h5>
+                <h6 class="card-subtitle text-muted">@Model.Address</h6>
+            </div>
+            <div class="card-body">
+                <p class="card-text">@Model.City</p>
+                <p class="card-text">@Model.PinCode</p>
+                <p class="card-text">@Model.State</p>
+            </div>
+        </div>
+        <div class="col-2 col-rg-2 my-3">
+            <a type="button" asp-area="Admin" asp-controller="Theatre" asp-action="Index" class="btn btn-primary my-2">Back to Theatre List</a>
+            <div>
+                <a type="button" asp-area="Admin" asp-controller="Theatre" asp-action="Update" asp-route-id="@Model.Id" class="btn btn-info my-2">Edit</a>
+            </div>
+            <a type="button" asp-area="Admin" asp-controller="Theatre" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger my-2">Delete</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+﻿@using BookMyShow.Utilities
+@model Movie
+
+<div class="row pb-3 mb-5 pt-4">
+    <div class="col-10 col-lg-9 col-sm-6 card pt-3 pb-8 mx-3">
+        <h3 class="card-header">@Model.Name</h3>
+        <div class="card-body">
+            <h5 class="card-title">Directed By </h5>
+            <h6 class="card-subtitle text-muted">@Model.Director</h6>
+        </div>
+        <img xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none"
+             width="400px" height="100%" viewBox="0 0 318 180"
+             style="font-size:1.125rem;text-anchor:middle" src="@Model.Poster">
+        </img>
+        <div class="p-1 pl-2">
+            <span class="badge bg-dark">@Model.Genre</span>
+            <span class="badge bg-dark">@Model.AgeRating + </span>
+            <span class="badge bg-dark">@Model.Language.ToString()</span>
+        </div>
+        <div>
+            @if(Model.MovieState == 0)
+            {
+                <span class="badge bg-success">Active</span>
+            }
+            else if (Model.MovieState == 1)
+            {
+                <span class="badge bg-warning">Inactive</span>
+            }
+            else if(Model.MovieState == 2)
+            {
+                <span class="badge bg-info">Upcoming</span>
+            }
+            else
+            {
+                <span class="badge bg-danger">Banned</span>
+            }
+        </div>
+        <div class="card-body">
+            <p class="card-text">@Model.Cast</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Produced By - @Model.Producer</li>
+            <li class="list-group-item">Music Director - @Model.MusicDirector</li>
+        </ul>
+        <div class="card-body">
+            <a href="@@Model.Trailer" class="card-link text-decoration-none">Watch trailer</a>
+        </div>
+        <div class="card-footer text-muted">
+            Releasing On @Model.ReleaseDate.ToLongDateString()
+        </div>
+    </div>
+    <div class="col-2 col-rg-2 my-3">
+        <a type="button" asp-area="Admin" asp-controller="Movie" asp-action="Index" class="btn btn-primary my-2">Back to Movies</a>
+        <div>
+            <a type="button" asp-area="Admin" asp-controller="Movie" asp-action="Update" asp-route-id="@Model.Id" class="btn btn-info my-2">Edit</a>
+        </div>
+        <a type="button" asp-area="Admin" asp-controller="Movie" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger my-2">Delete</a>
+    </div>
+</div>

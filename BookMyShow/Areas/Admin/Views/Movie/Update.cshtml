@@ -1,0 +1,67 @@
+﻿@model UpdateMovieVM
+
+<form method="post" class="mb-5">
+    <input asp-for="Movie.Id" hidden />
+    <fieldset>
+        <legend>Create Movie</legend>
+        <div class="col-6">
+            <label asp-for="Movie.Name" class="form-label mt-4">Movie Name</label>
+            <input asp-for="Movie.Name" type="text" class="form-control" placeholder="Movie Name">
+        </div>
+        <div class="col-6">
+            <label asp-for="Movie.Cast" class="form-label mt-4">Movie Cast</label>
+            <input asp-for="Movie.Cast" type="text" class="form-control" placeholder="Movie Cast" value="@Model.Movie.Cast">
+        </div>
+        <div class="col-6">
+            <label asp-for="Movie.Producer" class="form-label mt-4">Movie Producer</label>
+            <input asp-for="Movie.Producer" type="text" class="form-control" placeholder="Movie Producer" value="@Model.Movie.Producer">
+        </div>
+        <div class="col-6">
+            <label asp-for="Movie.Director" class="form-label mt-4">Movie Director</label>
+            <input asp-for="Movie.Director" type="text" class="form-control" placeholder="Movie Director" value="@Model.Movie.Director">
+        </div>
+        <div class="col-6">
+            <label asp-for="Movie.MusicDirector" class="form-label mt-4">Music Director</label>
+            <input asp-for="Movie.MusicDirector" type="text" class="form-control" placeholder="Music Director" value="@Model.Movie.MusicDirector">
+        </div>
+        <div class="col-6">
+            <label asp-for="Movie.Poster" class="form-label mt-4">Poster</label>
+            <input asp-for="Movie.Poster" type="text" class="form-control" placeholder="Poster URL" value="@Model.Movie.Poster">
+        </div>
+        <div class="col-6">
+            <label asp-for="Movie.Trailer" class="form-label mt-4">Movie Trailer</label>
+            <input asp-for="Movie.Trailer" type="text" class="form-control" placeholder="Movie Trailer URL" value="@Model.Movie.Trailer">
+        </div>
+        <div class="col-6">
+            <label asp-for="Movie.Duration" class="form-label mt-4">Movie Duration</label>
+            <input asp-for="Movie.Duration" type="number" class="form-control" placeholder="Movie Duration(in minutes)" value="@Model.Movie.Duration">
+        </div>
+        <div class="col-6">
+            <label asp-for="Movie.Genre" class="form-label mt-4">Movie Genre</label>
+            <input asp-for="Movie.Genre" type="text" class="form-control" placeholder="Movie Genre" value="@Model.Movie.Genre">
+        </div>
+        <div class="col-6">
+            <label asp-for="Movie.Language" class="form-label mt-4">Movie Language</label>
+            <input asp-for="Movie.Language" type="text" class="form-control" placeholder="Movie Language" value="@Model.Movie.Language">
+        </div>
+        <div class="col-6">
+            <label asp-for="Movie.AgeRating" class="form-label mt-4">Age Rating</label>
+            <input asp-for="Movie.AgeRating" type="text" class="form-control" placeholder="Age Rating" value="@Model.Movie.AgeRating">
+        </div>
+        <div class="col-6">
+            <label asp-for="Movie.ReleaseDate" class="form-label mt-4">Release Date</label>
+            <input asp-for="Movie.ReleaseDate" type="date" class="form-control" placeholder="Release Date" value="@Model.Movie.ReleaseDate.ToString("yyyy-MM-dd")">
+        </div>
+        <div class="col-6">
+            <label asp-for="Movie.MovieState" class="form-label mt-4">Movie State</label>
+            <select asp-for="Movie.MovieState" asp-items="@Model.MovieState" type="text" class="form-control" placeholder="Movie State">
+                <option disabled selected>--Select State--</option>
+            </select>
+            <span asp-validation-for="Movie.MovieState" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary mx-3 my-4">Save</button>
+        <a type="button" asp-area="Admin" asp-controller="Movie" asp-action="Index" class="btn btn-primary my-4">Back to Movies</a>
+    </fieldset>
+</form>
+
+

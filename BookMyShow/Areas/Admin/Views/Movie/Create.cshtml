@@ -1,0 +1,62 @@
+﻿@model Movie
+
+<form method="post" class="mb-4" enctype="multipart/form-data">
+    <input asp-for="Id" hidden />
+    <input asp-for="Poster" hidden />
+    <fieldset>
+        <legend>Create Movie</legend>
+        <div class="col-6">
+            <label asp-for="Name" class="form-label mt-4">Movie Name</label>
+            <input asp-for="Name" type="text" class="form-control" placeholder="Movie Name">
+        </div>
+        <div class="col-6">
+            <label asp-for="Cast" class="form-label mt-4">Movie Cast</label>
+            <input asp-for="Cast" type="text" class="form-control" placeholder="Movie Cast">
+        </div>
+        <div class="col-6">
+            <label asp-for="Producer" class="form-label mt-4">Movie Producer</label>
+            <input asp-for="Producer" type="text" class="form-control" placeholder="Movie Producer">
+        </div>
+        <div class="col-6">
+            <label asp-for="Director" class="form-label mt-4">Movie Director</label>
+            <input asp-for="Director" type="text" class="form-control" placeholder="Movie Director">
+        </div>
+        <div class="col-6">
+            <label asp-for="MusicDirector" class="form-label mt-4">Music Director</label>
+            <input asp-for="MusicDirector" type="text" class="form-control" placeholder="Music Director">
+        </div>
+        <div class="col-6">
+            <label asp-for="Poster" for="formFile" class="form-label mt-4">Poster</label>
+            <div>
+                <input class="form-control" type="file" name="file" id="formFile">
+            </div>
+        </div>
+        <div class="col-6">
+            <label asp-for="Trailer" class="form-label mt-4">Movie Trailer</label>
+            <input asp-for="Trailer" type="text" class="form-control" placeholder="Movie Trailer URL">
+        </div>
+        <div class="col-6">
+            <label asp-for="Duration" class="form-label mt-4">Movie Duration</label>
+            <input asp-for="Duration" type="number" class="form-control" placeholder="Movie Duration(in minutes)">
+        </div>
+        <div class="col-6">
+            <label asp-for="Genre" class="form-label mt-4">Movie Genre</label>
+            <input asp-for="Genre" type="text" class="form-control" placeholder="Movie Genre">
+        </div>
+        <div class="col-6">
+            <label asp-for="Language" class="form-label mt-4">Movie Language</label>
+            <input asp-for="Language" type="text" class="form-control" placeholder="Movie Language">
+        </div>
+        <div class="col-6">
+            <label asp-for="AgeRating" class="form-label mt-4">Age Rating</label>
+            <input asp-for="AgeRating" type="text" class="form-control" placeholder="Age Rating">
+        </div>
+        <div class="col-6">
+            <label asp-for="ReleaseDate" class="form-label mt-4">Release Date</label>
+            <input asp-for="ReleaseDate" type="date" class="form-control" placeholder="Release Date" value="@DateOnly.FromDateTime(DateTime.Now)">
+        </div>
+        <button type="submit" class="btn btn-primary my-4">Submit</button>
+    </fieldset>
+</form>
+
+

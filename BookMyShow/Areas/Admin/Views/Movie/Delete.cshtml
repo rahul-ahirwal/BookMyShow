@@ -1,0 +1,41 @@
+﻿@model Movie
+
+<form method="post" class="mb-5">
+    <input asp-for="Id" hidden />
+    <div class="row pb-3 mb-5 pt-4">
+        <div class="col-10 col-lg-9 col-sm-6 card pt-3 pb-8 mx-3">
+            <h3 class="card-header">@Model.Name</h3>
+            <div class="card-body">
+                <h5 class="card-title">Directed By </h5>
+                <h6 class="card-subtitle text-muted">@Model.Director</h6>
+            </div>
+            <img xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none"
+                 width="100%" height="350px" aria-label="Placeholder: Image cap" focusable="false"
+                 role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180"
+                 style="font-size:1.125rem;text-anchor:middle" href="@@Model.Poster">
+            </img>
+            <div class="p-1 pl-2">
+                <span class="badge bg-dark">@Model.Genre</span>
+                <span class="badge bg-dark">@Model.AgeRating + </span>
+                <span class="badge bg-dark">@Model.Language</span>
+            </div>
+            <div class="card-body">
+                <p class="card-text">@Model.Cast</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Produced By - @Model.Producer</li>
+                <li class="list-group-item">Music Director - @Model.MusicDirector</li>
+            </ul>
+            <div class="card-body">
+                <a href="@@Model.Trailer" class="card-link text-decoration-none">Watch trailer</a>
+            </div>
+            <div class="card-footer text-muted">
+                Releasing On @Model.ReleaseDate.ToLongDateString()
+            </div>
+        </div>
+        <div class="col-2 col-rg-2 my-3">
+            <a type="button" asp-area="Admin" asp-controller="Movie" asp-action="Index" class="btn btn-primary my-2">Back to Movies</a>
+            <button type="submit"  class="btn btn-danger my-2">Delete</button>
+        </div>
+    </div>
+</form>

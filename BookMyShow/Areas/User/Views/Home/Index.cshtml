@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Movie>
+
+</br>
+<div class="row mb-5 col-12">
+    @foreach (var movie in Model)
+    {
+        <div class="col-lg-4 col-sm-6 card pt-3 pb-8 mx-3 mb-4 w-30">
+            <h3 class="card-header">@movie.Name</h3>
+            <div class="card-body">
+                <div>
+                    <div class="float-start">
+                        <h5 class="card-title">Directed By </h5>
+                        <h6 class="card-subtitle text-muted">@movie.Director</h6>
+                    </div>
+                    <div class="float-end">
+                        <a type="button" asp-area="User" asp-controller="Booking" asp-action="SelectShow" asp-route-id="@movie.Id" class="btn btn-primary mx-0">Book Now!</a>
+                    </div>
+                </div>
+            </div>
+            <img xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none"
+                 width="100%" height="350px" viewBox="0 0 318 180"
+                 style="font-size:1.125rem;text-anchor:middle" src="@movie.Poster">
+            </img>
+            <div class="p-1 pl-2">
+                <span class="badge bg-dark">@movie.Genre</span>
+                <span class="badge bg-dark">@movie.AgeRating + </span>
+                <span class="badge bg-dark">@movie.Language</span>
+            </div>
+            <div class="card-body">
+                <p class="card-text">@movie.Cast</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Produced By - @movie.Producer</li>
+                <li class="list-group-item">Music Director - @movie.MusicDirector</li>
+            </ul>
+            <div class="card-body">
+                <a href="@movie.Trailer" class="card-link text-decoration-none">Watch trailer</a>
+            </div>
+            <div class="card-footer text-muted">
+                Releasing On @movie.ReleaseDate.ToLongDateString()
+            </div>
+        </div>
+    }
+</div>
+

@@ -1,0 +1,52 @@
+﻿@using BookMyShow.Utilities
+@model IEnumerable<Movie>
+</br>
+<div id="myTabContent" class="tab-content mb-4">
+    <div class="float-end">
+        <a type="button" asp-area="Admin" asp-controller="Movie" asp-action="Create" class="btn btn-primary mx-4">Create new</a>
+    </div>
+    <div class="tab-pane fade show active" id="home" role="tabpanel">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Movie Name</th>
+                    <th scope="col">Released on</th>
+                    <th scope="col">Running from</th>
+                    <th scope="col">State</th>
+                    <th scope="col">Manage</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var movie in Model)
+                {
+                    <tr class="table-light">
+                        <th scope="row">@movie.Name</th>
+                        <td>@movie.ReleaseDate</td>
+                        <td>@(DateOnly.FromDateTime(DateTime.Now).DayNumber - movie.ReleaseDate.DayNumber) Days</td>
+                        @switch(movie.MovieState)
+                        {
+                            case 0 :
+                                <td><span class="badge bg-success">Active</span></td>
+                                break;
+                            case 1 :
+                                <td><span class="badge bg-warning">Inactive</span></td>
+                                break;
+                            case 2 :
+                                <td><span class="badge bg-info">Upcoming</span></td>
+                                break;
+                            case 3 :
+                                <td><span class="badge bg-danger">Banned</span></td>
+                                break;
+                        }
+                        <td>
+                            <a type="button" asp-area="Admin" asp-controller="Movie" asp-action="Details" asp-route-id="@movie.Id" class="btn btn-success mx-4">View</a>
+                            <a type="button" asp-area="Admin" asp-controller="Movie" asp-action="Update" asp-route-id="@movie.Id" class="btn btn-info mx-4">Edit</a>
+                            <a type="button" asp-area="Admin" asp-controller="Movie" asp-action="Delete" asp-route-id="@movie.Id" class="btn btn-danger mx-4">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
