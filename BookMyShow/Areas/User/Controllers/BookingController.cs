@@ -2,10 +2,7 @@
 using BookMyShow.Models;
 using BookMyShow.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
 using System.Security.Claims;
 
 namespace BookMyShow.Areas.User.Controllers
@@ -29,7 +26,6 @@ namespace BookMyShow.Areas.User.Controllers
             _bookingRepository = bookingRepository;
             _bookingCartRepository = bookingCartRepository;
         }
-
         public IActionResult Bookings()
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity;

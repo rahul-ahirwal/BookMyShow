@@ -6,7 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using BookMyShow.Utilities;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using Microsoft.Extensions.FileProviders;
+using BookMyShow.Utilities.Filters;
+using BookMyShow.Filters;
+using BookMyShow.Middlewares;
+using BookMyShow;
 
 var builder = WebApplication.CreateBuilder(args);
 //Add services here
@@ -18,6 +21,8 @@ builder.Services.AddScoped<IRepository<Booking>, Repository<Booking>>();
 builder.Services.AddSingleton<IEmailSender, EmailSender>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<CustomValidationFilter>();
+builder.Services.AddScoped<CustomActionFilter>();
 
 builder.Services.AddDbContext<MovieDbContext>(options =>
 {
@@ -26,17 +31,13 @@ builder.Services.AddDbContext<MovieDbContext>(options =>
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<MovieDbContext>()
     .AddDefaultTokenProviders();
-
+builder.Services.AddExceptionHandler<GlobalErrorHandler>();
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = $"/Identity/Account/Login";
     options.LogoutPath = $"/Identity/Account/Logout";
     options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
 });
-
-//builder.Services.AddDefaultIdentity<IdentityUser>(options => 
-  //  options.SignIn.RequireConfirmedAccount = true)
-    //.AddEntityFrameworkStores<MovieDbContext>();
 
 builder.Services.AddRazorPages();
 var app = builder.Build();
@@ -48,8 +49,9 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
 app.UseHttpsRedirection();
+app.UseMiddleware<SetCorrelationId>();
+app.UseExceptionHandler(_ => { });
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
@@ -58,5 +60,4 @@ app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
     pattern: "{area=User}/{controller=Home}/{action=Index}/{id?}");
-
 app.Run();

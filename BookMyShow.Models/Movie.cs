@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BookMyShow.Utilities.Validations;
 
 namespace BookMyShow.Models
 {
@@ -23,6 +24,7 @@ namespace BookMyShow.Models
         [Required]
         public int Duration { get; set; }
         [Required]
+        //[MovieGenre("Action")]
         public string Genre { get; set; }
         [Required]
         public string Language { get; set; }

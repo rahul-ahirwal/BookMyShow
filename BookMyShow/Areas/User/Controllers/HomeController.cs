@@ -1,10 +1,14 @@
 ﻿using BookMyShow.Data.Repository.IRepository;
+using BookMyShow.Filters;
 using BookMyShow.Models;
+using BookMyShow.Utilities.Filters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookMyShow.Areas.User.Controllers
 {
     [Area("User")]
+    [ServiceFilter(typeof(CustomValidationFilter))]
+    [ServiceFilter(typeof(CustomActionFilter))]
     public class HomeController : Controller
     {
         private readonly IRepository<Movie> _repository;

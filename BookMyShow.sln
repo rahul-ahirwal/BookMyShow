@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookMyShow", "BookMyShow\BookMyShow.csproj", "{74C9F920-89B9-4711-BC9F-98A3C948F3FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookMyShow", "BookMyShow\BookMyShow.csproj", "{74C9F920-89B9-4711-BC9F-98A3C948F3FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookMyShow.Models", "BookMyShow.Models\BookMyShow.Models.csproj", "{6CB36F79-11DD-469B-8D55-ED9EA2493DCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookMyShow.Models", "BookMyShow.Models\BookMyShow.Models.csproj", "{6CB36F79-11DD-469B-8D55-ED9EA2493DCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookMyShow.Data", "BookMyShow.Data\BookMyShow.Data.csproj", "{2EB8FF84-C50D-4F05-AC77-3D8B8AE4856F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookMyShow.Data", "BookMyShow.Data\BookMyShow.Data.csproj", "{2EB8FF84-C50D-4F05-AC77-3D8B8AE4856F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookMyShow.Utilities", "BookMyShow.Utilities\BookMyShow.Utilities.csproj", "{82ED2487-7C75-4EDA-92A5-8A4B78EFA259}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookMyShow.Utilities", "BookMyShow.Utilities\BookMyShow.Utilities.csproj", "{82ED2487-7C75-4EDA-92A5-8A4B78EFA259}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookMyShow.Tests", "BookMyShow.Tests\BookMyShow.Tests.csproj", "{F76040F2-8754-458A-8BFD-38AE7F95A9DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{82ED2487-7C75-4EDA-92A5-8A4B78EFA259}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82ED2487-7C75-4EDA-92A5-8A4B78EFA259}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82ED2487-7C75-4EDA-92A5-8A4B78EFA259}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F76040F2-8754-458A-8BFD-38AE7F95A9DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F76040F2-8754-458A-8BFD-38AE7F95A9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F76040F2-8754-458A-8BFD-38AE7F95A9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F76040F2-8754-458A-8BFD-38AE7F95A9DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

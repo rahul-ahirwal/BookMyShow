@@ -1,8 +1,6 @@
 ﻿using BookMyShow.Data.Repository.IRepository;
 using BookMyShow.Models;
 using BookMyShow.Models.ViewModels;
-using BookMyShow.Utilities;
-using Humanizer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
